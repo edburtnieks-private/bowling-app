@@ -24,7 +24,7 @@
   const isToday = days => todayIndex === days[days.indexOf(todayIndex)]
 	const isFirstHalf = firstHalf => hour >= firstHalf.startTime && hour < firstHalf.endTime
 	const isSecondHalf = secondHalf => hour >= secondHalf.startTime && hour <= secondHalf.endTime
-	const isInTime = price => hour >= price.startTime && hour <= price.endTime
+	const isInTime = price => hour >= bowling.startTime && hour <= bowling.endTime
 </script>
 
 <style>
@@ -40,40 +40,40 @@
 	<div>
 		<Header />
 
-		{#each prices.reservation as price}
+		{#each prices.bowling as bowling}
 			<DayCell
-				dayClass={price.firstHalf && price.secondHalf}
-				active={isToday(price.days)}
-				days={price.days}
+				dayClass={bowling.firstHalf && bowling.secondHalf}
+				active={isToday(bowling.days)}
+				days={bowling.days}
 				{dayNames}
 			/>
 
-			{#if price.firstHalf && price.secondHalf}
+			{#if bowling.firstHalf && bowling.secondHalf}
 				<PriceRow
-					active={isToday(price.days) && isFirstHalf(price.firstHalf)}
-					startTime={price.firstHalf.startTime}
-					endTime={price.firstHalf.endTime}
-					firstHourPrice={price.firstHalf.firstHour}
-					nextHourPrice={price.firstHalf.nextHour}
-					discount={price.firstHalf.discountFirstHour}
+					active={isToday(bowling.days) && isFirstHalf(bowling.firstHalf)}
+					startTime={bowling.firstHalf.startTime}
+					endTime={bowling.firstHalf.endTime}
+					firstHourPrice={bowling.firstHalf.firstHour}
+					nextHourPrice={bowling.firstHalf.nextHour}
+					discount={bowling.firstHalf.discountFirstHour}
 				/>
 
 				<PriceRow
-					active={isToday(price.days) && isSecondHalf(price.secondHalf)}
-					startTime={price.secondHalf.startTime}
-					endTime={price.secondHalf.endTime}
-					firstHourPrice={price.secondHalf.firstHour}
-					nextHourPrice={price.secondHalf.nextHour}
-					discount={price.secondHalf.discountFirstHour}
+					active={isToday(bowling.days) && isSecondHalf(bowling.secondHalf)}
+					startTime={bowling.secondHalf.startTime}
+					endTime={bowling.secondHalf.endTime}
+					firstHourPrice={bowling.secondHalf.firstHour}
+					nextHourPrice={bowling.secondHalf.nextHour}
+					discount={bowling.secondHalf.discountFirstHour}
 				/>
 			{:else}
 				<PriceRow
-					active={isToday(price.days) && isInTime(price.fullDay)}
-					startTime={price.fullDay.startTime}
-					endTime={price.fullDay.endTime}
-					firstHourPrice={price.fullDay.firstHour}
-					nextHourPrice={price.fullDay.nextHour}
-					discount={price.fullDay.discountFirstHour}
+					active={isToday(bowling.days) && isInTime(bowling.fullDay)}
+					startTime={bowling.fullDay.startTime}
+					endTime={bowling.fullDay.endTime}
+					firstHourPrice={bowling.fullDay.firstHour}
+					nextHourPrice={bowling.fullDay.nextHour}
+					discount={bowling.fullDay.discountFirstHour}
 				/>
 			{/if}
 		{/each}

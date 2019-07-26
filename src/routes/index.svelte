@@ -2,7 +2,7 @@
 	import PriceTable from '../components/PriceTable/index.svelte'
 
 	const prices = {
-		reservation: [
+		bowling: [
 			{
 				days: [1, 2, 3, 4],
 				firstHalf: {
