@@ -5,8 +5,8 @@
 	import DayCell from './DayCell/index.svelte'
 	import PriceRow from './PriceRow/index.svelte'
 
-  export let prices
-  
+	export let prices
+
   const todayDate = new Date()
 	const dayNames = [
 		'Sunday',
@@ -24,7 +24,7 @@
   const isToday = days => todayIndex === days[days.indexOf(todayIndex)]
 	const isFirstHalf = firstHalf => hour >= firstHalf.startTime && hour < firstHalf.endTime
 	const isSecondHalf = secondHalf => hour >= secondHalf.startTime && hour <= secondHalf.endTime
-	const isInTime = price => hour >= bowling.startTime && hour <= bowling.endTime
+	const isInTime = price => hour >= price.startTime && hour <= price.endTime
 </script>
 
 <style>

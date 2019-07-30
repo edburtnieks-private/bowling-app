@@ -1,4 +1,4 @@
-import mongoose from '../../routes/api/_db'
+import mongoose from 'mongoose'
 
 const bowlingPriceSchema = new mongoose.Schema({
   startTime: String,
